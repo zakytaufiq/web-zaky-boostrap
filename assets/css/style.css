@@ -1,0 +1,437 @@
+/* Google Font --> Mengambil font dari google*/
+@import url("https:https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/*Buat Vairabel CSS*/
+:root {
+--header-height: 3rem;
+--font-semi: 600;
+
+/*Mode Warna HSL(Hue, Saturation, Lightness) -> Membuat color pallete menggunakan hsl
+Hue (Warna, 0-360) Saturation(saturasi), Lightness(Kecerahan). 
+Contoh warna : Ungu 260, Merah 355, Biru 224, Pink 340, Oren 20*/
+
+--hue-color: 20; 
+--first-color: hsl(var(--hue-color), 89%, 60%);
+--second-color: hsl(var(--hue-color), 56%, 12%);
+
+/*Typografi -> Membuat pilihan dan ukuran font dengan font yang diambil dari google tadi*/
+--body-font: "Poppins", sans-serif; /*Pilihan pertama Poppins, Jika tidak ada maka akan memilih sans-serif*/
+--big-font-size: 2rem;
+--h2-font-size: 1.25rem;
+--normal-font-size: .938rem;
+--smaller-font: .75rem;
+
+/*Margin -> Membuat variabel untuk beberapa ukuran margin*/
+--mb-2: 1rem;
+--mb-4: 2rem;
+--mb-5: 2.5rem;
+--mb-6: 3rem;
+
+/*z index -> Mengatur layer z-index paling atas atau paling bawah*/
+--z-back: -10; /*z-layer untuk paling bawah*/
+--z-fixed: 100; /*z-layer untuk paling atas*/
+}
+
+/*Mengubah ukuran font saat ukuran layar mulai 968px dan keatas*/
+@media screen and (min-width: 968px) {
+    :root{
+        --big-font-size: 3.5rem;
+        --h2-font-size: 2rem;
+        --normal-font-size: 1rem;
+        --smaller-font-size: .875rem;
+    }
+}
+
+
+*, ::before, ::after {
+    box-sizing : border-box; /*Agar ukuran sesuai yang ditentukan*/
+}
+
+html{
+    scroll-behavior: smooth; 
+}
+
+/*Set up Tampilan Web menggukanan variabel yang telah dibuat tadi*/
+body{
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--second-color);
+}
+
+h1,h2,p{
+  margin: 0;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+/*Membuat Gambar Responsif*/
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section-title{
+  position: relative;
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  margin-top: var(--mb2);
+  margin-bottom: var(--mb-4);
+  text-align: center;
+}
+
+.section-title::after{
+  position: absolute;
+  content: "";
+  width: 64px;
+  height: 0.18rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 2rem;
+  background-color: var(--first-color);
+  }
+
+.section{
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  }
+
+/*Mengatur Layout*/
+/*Mengatur batas layar untuk halaman index/home, bd-grid2 untuk halaman project
+display grid membuat elemen jadi kontainer*/
+.bd-grid{
+  max-width: 1024px;
+  display: grid;
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}  
+
+.bd-grid2{
+  max-width: 1440px;
+  display: grid;
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}  
+
+.l-header{
+  width: 100%; /*Menetapkan lebar 100% dari jendela browser*/
+  position: fixed; /*agar posisi tetap dan tidak berpindah meski layar di scroll kebawah*/
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed); /*Mengubah posisi jadi tetap dan layernya berada dipaling atas/depan*/
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+}
+
+/*CSS pada bagian Navbar*/
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: var(--font-semi);
+}
+/*Saat lebar layar kurang dari atau sama dengan 767px 
+nav_menu akan muncul dari kanan layar jika menekan tombol humberger*/
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    top: var(--header-height);
+    right: -100%; /*Menggeser elemen ke arah kanan 100% / menyembunyikan elemen*/
+    width: 80%; /*Mengatur lebar sebesar 80% windows browser*/
+    height: 100%; /*Mengatur lebar sebesar 80% windows browser*/
+    padding: 2rem;
+    background-color: var(--second-color);
+    transition: 0.5s;
+  }
+}
+.nav__item {
+  margin-bottom: var(--mb-4);
+}
+.nav__link {
+  position: relative;
+  color: #fff;
+}
+.nav__link:hover {
+  position: relative;
+}
+.nav__link:hover::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.18rem;
+  left: 0;
+  top: 2rem;
+  background-color: var(--first-color);
+}
+.nav__logo {
+  color: var(--second-color);
+}
+.nav__toggle {
+  color: var(--second-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/*Menu Aktif -> Penanda halaman yang sedang aktif*/
+.active-link::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.18rem;
+  left: 0;
+  top: 2rem;
+  background-color: var(--first-color);
+}
+
+/*Menu tampil*/
+.show {
+  right: 0;
+}
+
+/*CSS pada bagian Home*/
+.home{
+  position: relative;
+  padding: 2rem 0 5rem;
+}
+.home__container{
+  row-gap: 2rem; /*Mengatur jarak antar baris pada grid*/
+  text-align: center;
+}
+.home__data{
+  align-self: center;
+}
+.home__title{
+  font-size: var(--big-font-size);
+  margin-bottom: var(--mb-5);
+}
+.home__title-color{
+  color: var(--first-color);
+}
+.home__img{
+  position: relative;
+  width: auto;
+  height: auto;
+}
+.home__blob{
+  fill: var(--first-color);
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+
+/*CSS untuk Tombol*/
+.button{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: 0.75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: 0.5rem;
+  transition: 0.3s; /*Transisi selama 0.5 detik ketika hover*/
+}
+.button:hover{
+  box-shadow: 0px 10px 36px rgba(0,0,0,0.15); /*hover dengan menampilkan box shadow*/
+}
+
+/*CSS pada bagian About*/
+.about__container{
+  row-gap: 2rem; /*Mengatur jarak antar baris pada grid*/
+  text-align: center;
+}
+.about__subtitle{
+  margin-bottom: var(--mb-2);
+}
+.about__img{
+  justify-self: center; 
+}
+.about__img img{
+  width: 200px; 
+  border-radius: 0.5rem;
+}
+
+/*CSS pada bagian Project*/
+/*project container untuk halaman index dan project container 2 untuk halaman project*/
+.project__container , .project__container2 {
+  row-gap: 2rem;
+  margin-bottom: var(--mb-2);
+}
+ 
+.project__img {
+  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+  border-radius: 0.5rem;
+  overflow: hidden; /*Menyembunyikan skala*/
+}
+.project__img img {
+  transition: 1s; /*Transisi selama 1 detik ketika hover*/
+}
+.project__img img:hover {
+  transform: scale(1.1); /*Hover dengan skala 1.1 dari ukuran asli*/
+}
+
+/*Membuat button jadi ke tengah*/
+.project__button {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.project__text{
+  margin: var(--mb-4);
+  margin-left: var(--mb-2);
+
+}
+
+/*Footer*/
+.footer {
+  background-color: var(--second-color);
+  color: #fff;
+  text-align: center;
+  font-weight: var(--font-semi);
+  padding: 2rem 0;
+}
+.footer__title {
+  font-size: 1.5rem;
+  margin-bottom: var(--mb-4);
+}
+.footer__social {
+  margin-bottom: var(--mb-4);
+}
+.footer__icon {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 var(--mb-2);
+}
+
+/*Media Query*/
+/*Saat lebar layar sebesar atau lebih dari 576px maka akan mengubah nilai dari berbagai elemen dibawah*/
+@media screen and (min-width: 576px) {
+  .home{
+    padding: 4rem 0 2rem;
+  }
+
+  .home__img {
+    width: 300px;
+  }
+  .about__container , .home__container{
+    grid-template-columns: repeat(2, 1fr); /*Membuat isi di kontainer menjadi 2 kolom dengan lebar yang sama*/
+    align-items: center; /*Menengahkan isi di kontainer*/
+    text-align: initial; /*Menengahkan teks di kontainer*/
+  }
+
+  .home__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse; /*Mengatur agar posisi antara 2 baris yang ada di kontainer di tukar*/
+    column-gap: 8rem;
+  }
+  /*Untuk project kontainer pada halaman index*/
+  .project__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    padding-top: 2rem;
+  }
+}
+
+/*Saat lebar layar sebesar atau kurang dari 768px maka akan mengubah nilai dari berbagai elemen dibawah*/
+@media screen and (max-width: 768px) {
+  body {
+    font-size: var(--smaller-font);
+  }
+  .project__text{
+    margin: var(--mb-2);
+  }
+}
+
+/*Saat lebar layar sebesar atau lebih dari 768px maka akan mengubah nilai dari berbagai elemen dibawah*/
+@media screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+  .section-title {
+    margin-bottom: var(--mb-6);
+  }
+  .section-title::after {
+    width: 80px;
+    top: 3rem;
+  }
+
+  /*Tampilan nav menu menjadi list vertikal*/
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+  .nav__list {
+    display: flex;
+    padding-top: 0;
+  }
+  .nav__item {
+    margin-left: var(--mb-6);
+    margin-bottom: 0;
+  }
+  .nav__toggle {
+    display: none; /*Menyembunyikan button humberger yang tadi digunkan sebagai menu ketika lebar layar kurang dari 768px*/
+  }
+  .nav__link {
+    color: var(--second-color);
+  }
+
+  .home {
+    padding: 8rem 0 2rem;
+  }
+  .home__img {
+    width: 400px;
+  }
+  .about__container , .home__container{
+    padding-top: 2rem;
+  }
+  .about__img img {
+    width: 300px;
+  }
+  
+  /*Kontainer untuk project pada halaman index*/
+  .project__container {
+    grid-template-columns: repeat(3, 1fr); /*Membuat isi di kontainer menjadi 3 kolom dengan lebar yang sama*/
+    column-gap: 2rem; 
+  }
+
+    /*Kontainer untuk project pada halaman project*/
+  .project__container2 {
+    grid-template-columns: repeat(2, 1fr); /*Membuat isi di kontainer menjadi 2 kolom dengan lebar yang sama*/
+    column-gap: 2rem;
+    row-gap: 2rem;
+    padding-top: 2rem;
+  }
+}
+
+/*Saat lebar layar sebesar atau lebih dari 768px maka akan mengubah nilai dari berbagai elemen dibawah*/
+@media screen and (min-width: 992px) {
+  /*bd-grid untuk halaman home, bd-grid2 untuk halaman project */
+
+  .bd-grid, .bd-grid2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home {
+    padding: 10rem 0 2rem;
+  }
+  .home__img {
+    width: 500px;
+    bottom: 10%;
+  }
+}
