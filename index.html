@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--Meta ViewPort : Agar web bisa responsive -->    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Memanggil Librari CSS : Boostrap , Boxcicon, dan css yang digunakan -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -10,14 +13,18 @@
 </head>
 <body>
 
-<!--Header-->
+<!--Header : Posisinya fix di atas -->
 <header class="bg-light shadow-sm fixed-top">
+  <!--Navbar : Navbar dari boostrap yang akan berubah jadi hamburger icon saat layar < 768px -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
+           <!--Navbar Brand : Logo / atau nama -->
             <a class="navbar-brand" href="#">Web Zaky</a>
+             <!--Navbar : button humberger yg akan muncul menggantikan nav menu saat ukuran layar < 768 -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+             <!--Navbar : Nav Menu yang akan tampil saat ukuran layar > 768px -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -39,16 +46,24 @@
 </header>
 
 <!--Bagian Isi Web-->
+<!-- Memberikan jarak mengimbangin header yang fixed top -->
 <main class="mt-5 pt-4">
     <!-- HOME -->
     <section class="container text-start  pt-5" id="home">
+      <!--Agar elemen rata tengah secara vertikal -->
         <div class="home row align-items-center">
+          <!-- Teks dan Button -->
             <div class="col-md-6 py-4">
                 <h1 class="display-4">Hi,<br> I'm <span class="name-home">Zaky</span><br> Freelancer</h1>
                 <a href="https://www.instagram.com/zakytfq/" class="btn btn-primary">Contact</a>
             </div>
+            <!--Agar elemen rata tengah secara horizontal -->
             <div class="col-md-6 d-flex justify-content-center">
+                <!--Mengubah gambar dengan efek masker sehingga tampak seperti segitiga dengan sudut yang sangat tumpul-->
+                <!--<svg> : Tempat menggambar verktor SVG-->
+                <!--Viewbox : Mengatur posisi dan ukuran kotak svg-->
                 <svg class="home__blob" viewBox="0 0 200 173" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!--Masker yang akan menutupi/memotong gambar-->
                     <mask id="mask0" mask-type="alpha">
                         <circle cx="90" cy="85" r="50" fill="white"/>
                         <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
@@ -56,6 +71,7 @@
                                 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
                                 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
                     </mask>
+                    <!--Tempat masker digunakan / Gambar yang akan di masking-->
                     <g mask="url(#mask0)">
                         <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
                                 165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
@@ -67,12 +83,15 @@
             </div>
         </div>
     </section>
+    <!--AKHIR HOME SECTION -->
 
     <!-- About -->
     <section class="container my-5 pt-5" id="about">
         <h2 class="section-title text-center mb-4">About</h2>
+        <!-- Membuat konten rata tengah -->
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6 about-img ">
+                <!-- Gambar responsif dan sudut tumpul -->
                 <img src="assets/img/zaky.jpg" class="img-fluid rounded" alt="">
             </div>
             <div class="col-md-6 about-me py-4">
@@ -81,19 +100,25 @@
             </div>
         </div>
     </section>
+    <!-- Akhir About Section-->
 
-    <!-- projek -->
+    <!-- Projek / Portofolio -->
     <section id="portfolio" class="portfolio section my-5 pt-5">
         <!-- Section Title -->
         <h2 class="section-title text-center mb-4">Project</h2>
+        <!-- Menggunakan Caousel Yang bisa slide otomatis dan juga bisa manual, Ada indikator dan 
+         juga ada teks keterangan lebar layar > 768px -->
         <div class="container w-60">
           <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <!-- penanda untuk carousel -->
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
+           
             <div class="carousel-inner">
+               <!-- Carousel pertama -->
               <div class="carousel-item active">
                 <img src="assets/img/project1.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
@@ -101,6 +126,7 @@
                   <p>Penerapan Teknologi AR Pada Pembelajaran Sistem Saraf Bagian Otak</p>
                 </div>
               </div>
+               <!-- Carousel kedua -->
               <div class="carousel-item">
                 <img src="assets/img/project2.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
@@ -108,6 +134,7 @@
                   <p>Event Mogu Suteji 5 - Ayani Megamall Pontianak</p>
                 </div>
               </div>
+               <!-- Carousel ketiga -->
               <div class="carousel-item">
                 <img src="assets/img/project3.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
@@ -116,6 +143,7 @@
                 </div>
               </div>
             </div>
+             <!-- Tombol next dan previous -->
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
@@ -126,13 +154,15 @@
             </button>
           </div>
         </div>
+        <!-- Tombol more untuk mengarah ke halaman projek -->
         <div class="text-center my-3">
             <a href="project.html" class="btn btn-primary">More</a>
         </div>
   
-      </section><!-- /Portfolio Section -->
+      </section>
+      <!-- Akhir Projek / Portfolio Section -->
 
-      <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact" class="contact section">
     <!-- Section Title -->
     <div class="container py-3">
@@ -141,7 +171,11 @@
     </div><!-- End Section Title -->
 
     <div class="container">
-      <div class="row gy-4 align-items-baseline">
+      <!-- Membuat gap atau jarak vertikal antar kolom dan menyesuaikan agar item rata di atas -->
+      <!-- Membagi menjadi 2 kolom, col 5 (kontak dan map) dan col 7 (Form pertanyaan/pesan) -->
+      <div class="row gy-4 align-items-baseline"> 
+        
+        <!-- Kontak dan Map -->
         <div class="col-lg-5">
           <div class="info-wrap">
             <div class="info-item d-flex align-items-center">
@@ -175,6 +209,7 @@
           </div>
         </div>
 
+        <!-- Form pertanyaan/pesan -->
         <div class="col-lg-7">
           <div class="row gy-4 form-contact">
             <div class="col-md-6">
@@ -205,9 +240,8 @@
         <!-- End Contact Form -->
       </div>
     </div>
-  </section><!-- /Contact Section -->
-
-  
+  </section>
+  <!-- Akhir Contact Section -->
 </main>
 
 <!--Footer-->
@@ -219,7 +253,9 @@
     <p class="mb-0">&copy; Zaky. All rights reserved.</p>
 </footer>
 
+<!--Mengakses Boostrap js -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<!--Mengakses JS lokal-->
 <script src="assets/js/main.js"></script>
 </body>
 </html>
