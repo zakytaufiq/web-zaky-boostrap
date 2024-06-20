@@ -2,23 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--Meta ViewPort : Agar web bisa responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Memanggil Librari CSS : Boostrap , Boxcicon, dan css yang digunakan -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Web Zaky</title>
 </head>
 <body>
 
 <!--Header-->
+<!--Header : Posisinya fix di atas -->
 <header class="bg-light shadow-sm fixed-top">
+    <!--Navbar : Navbar dari boostrap yang akan berubah jadi hamburger icon saat layar < 768px -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
+            <!--Navbar Brand : Logo / atau nama -->
             <a class="navbar-brand" href="#">Web Zaky</a>
+            <!--Navbar : button humberger yg akan muncul menggantikan nav menu saat ukuran layar < 768 -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!--Navbar : Nav Menu yang akan tampil saat ukuran layar > 768px -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -27,9 +34,6 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#portfolio">Project</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -37,21 +41,27 @@
 </header>
 
 <!--Bagian Isi Web-->
+<!-- Memberikan jarak mengimbangin header yang fixed top -->
 <main class="mt-5 pt-4">
+    <!-- Portofolio -->
     <section id="portfolio" class="portfolio section mb-4">
-        <!-- Section Title -->
+        <!-- Section Title  -->
         <h2 class="section-title text-center mb-4">Project</h2>
+        <!-- Kontainer, jika ada overflow akan disembunyikan -->
         <div class="container overflow-hidden">
-  
+        <!-- Menggunakan isotope layout untuk membuat filter pada projek yang memiliki kelas app dan kelas desain -->
           <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
             <ul class="portfolio-filters isotope-filters" >
+              <!-- List yang akan di filter -->
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">App</li>
               <li data-filter=".filter-desain">Desain Konten</li>
-            </ul><!-- End Portfolio Filters -->
-  
+            </ul>
+            
+            <!-- Projek atau portofolio -->
+             <!-- row g-4 : memberi jarak secara vertikal dan horizontal -->
+             <!-- Col-md-6 : Jika layar > 768px maka akan menjadi 2 kolom / setengah layar -->
             <div class="row g-4 isotope-container">
-             
               <div class="col-md-6 portfolio-item isotope-item filter-app ">
                 <div class="portfolio-content h-100 card">
                   <img src="assets/img/project1.png" class="img-fluid card-img-top" alt="">
@@ -170,9 +180,9 @@
     <p class="mb-0">&copy; Zaky. All rights reserved.</p>
 </footer>
 
+<!-- Script Memanggil Librari JS : isotope layout, boostrap, dan lokal js -->
 <script src="assets/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
